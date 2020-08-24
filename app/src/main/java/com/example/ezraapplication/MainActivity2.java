@@ -1,42 +1,45 @@
 package com.example.ezraapplication;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity2 extends AppCompatActivity {
-    EditText e1,e2;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+class MainActivity extends AppCompatActivity {
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+
+    EditText txtusername;
+    EditText txtpassword;
+    Button btnlogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
-    public void Click(View v){
-        e1=(EditText) findViewById(R.id.editText1);
-        e2=(EditText) findViewById(R.id.editText2);
-
-        String User= e1.getText().toString();
-        String Pass = e2.getText().toString();
-        if (e1.getText().toString().isEmpty() && e2.getText().toString().isEmpty()){
-            Toast.makeText(this, "Mohon jangan dikosongi", Toast.LENGTH_SHORT).show();
-        }
-        else if (e1.getText().toString().isEmpty()){
-            Toast.makeText(this, "Username  tidak boleh kosong", Toast.LENGTH_SHORT).show();
-        }
-        else if (e2.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Password tidak boleh kosong", Toast.LENGTH_SHORT).show();
-        }
-        else if (e1.getText().toString().equals("admin") && e2.getText().toString().equals("admin")) {
-            Toast.makeText(this, "Login Sukses", Toast.LENGTH_SHORT).show();
-
-        }
-        else  {
-            Toast.makeText(this, "Login Gagal", Toast.LENGTH_SHORT).show();
-        }
+        pref = getSharedPreferences("login", MODE_PRIVATE);
+        txtusername = (EditText)findViewById(R.id.txtusername);
+        txtpassword = (EditText)findViewById(R.id.txtpassword);
+        btnlogin = (Button) findViewById(R.id.btnlogin);
+        btnlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (txtusername.getText().toString().equalsIgnoreCase("admin")
+                        && txtpassword.getText().toString().equalsIgnoreCase("admin")){
+                    //saving ke SP
+                    editor = pref.edit();
+                    editor.putString("username", txtusername.getText().toString());
+                    editor.putString("status", "login");
+                    editor.apply();
+                    //menuju ke main menu
+                    startActivity(new Intent(getApplicationContext(), Mainmenu.class));
+                    finish();
+                }
+            }
+        });
     }
 }
