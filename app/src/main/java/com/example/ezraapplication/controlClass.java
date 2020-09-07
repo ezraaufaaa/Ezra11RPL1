@@ -16,10 +16,10 @@ public class controlClass extends AppCompatActivity {
         if (sharedPreferences.getString("username", "").isEmpty() ||
                 sharedPreferences.getString("username", "").equalsIgnoreCase("")){
             //login dulu
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            startActivity(new Intent(getApplicationContext(),MainActivityy.class));
             finish();
         }else{
-            startActivity(new Intent(getApplicationContext(),Mainmenu.class));
+            startActivity(new Intent(getApplicationContext(),MainMenu.class));
             finish();
         }
     }

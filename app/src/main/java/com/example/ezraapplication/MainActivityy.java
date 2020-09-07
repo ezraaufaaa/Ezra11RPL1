@@ -9,34 +9,35 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-class MainActivity extends AppCompatActivity {
+public class MainActivityy extends AppCompatActivity {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
 
-    EditText txtusername;
-    EditText txtpassword;
-    Button btnlogin;
+    Button login, daftar;
+    EditText user, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        user = (EditText) findViewById(R.id.txtuser);
         pref = getSharedPreferences("login", MODE_PRIVATE);
-        txtusername = (EditText)findViewById(R.id.txtusername);
-        txtpassword = (EditText)findViewById(R.id.txtpassword);
-        btnlogin = (Button) findViewById(R.id.btnlogin);
-        btnlogin.setOnClickListener(new View.OnClickListener() {
+        pass = (EditText) findViewById(R.id.txtpass);
+        login = (Button) findViewById(R.id.btnlogin);
+
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (txtusername.getText().toString().equalsIgnoreCase("admin")
-                        && txtpassword.getText().toString().equalsIgnoreCase("admin")){
+                if (user.getText().toString().equalsIgnoreCase("ezra")
+                        && pass.getText().toString().equalsIgnoreCase("aufaa")){
                     //saving ke SP
                     editor = pref.edit();
-                    editor.putString("username", txtusername.getText().toString());
+                    editor.putString("username", user.getText().toString());
                     editor.putString("status", "login");
                     editor.apply();
                     //menuju ke main menu
-                    startActivity(new Intent(getApplicationContext(), Mainmenu.class));
+                    startActivity(new Intent(getApplicationContext(), MainMenu.class));
                     finish();
                 }
             }
