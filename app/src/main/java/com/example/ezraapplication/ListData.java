@@ -69,7 +69,7 @@ public class ListData extends AppCompatActivity {
     }
 
     void addDataOnline(){
-        AndroidNetworking.get("https://api.themoviedb.org/3/movie/now_playing?api_key=4344c92b5de6a2d3648c385808b1601f&language=en-US")
+        AndroidNetworking.get("https://api.themoviedb.org/3/movie/now_playing?api_key=7def4392ff1a33c681552cb553b67419&language=en-US")
                 .setTag("test")
                 .setPriority(Priority.LOW)
                 .build()
@@ -93,7 +93,8 @@ public class ListData extends AppCompatActivity {
                                 modelku.setPoster_path("https://image.tmdb.org/t/p/w500"+jsonObject.getString("poster_path"));
                                 modelku.setAdult(jsonObject.getBoolean("adult"));
                                 modelku.setVote_count(jsonObject.getInt("vote_count"));
-                                modelku.setRelease_date(jsonObject.getString("release_date"));
+                                modelku.setRelease_date(jsonObject.getString("release_date")
+                                );
                                 DataArrayList.add(modelku);
                             }
 
