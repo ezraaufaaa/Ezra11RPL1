@@ -1,0 +1,319 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMmaobfG/1h9XWlCi7cRhgF",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ezraaufaaa/Ezra11RPL1/blob/master/Binus\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = 1\n",
+        "print(x)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ft0eg04c9mC6",
+        "outputId": "1050987c-8bb8-405b-8fc2-7e7996d73c2d"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np"
+      ],
+      "metadata": {
+        "id": "YmgAQxxs_XwE"
+      },
+      "execution_count": 4,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = np.array([1, 4, 3])\n",
+        "x"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "kZSGkON7_hjA",
+        "outputId": "9f8a93f7-276a-4f8b-c2e1-0bb111398353"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([1, 4, 3])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "y = np.array([[1, 4, 3], [9, 2, 7]])\n",
+        "y"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "WZnvmm7xASMK",
+        "outputId": "45f4b76f-322f-4a90-a397-d20bb231d97a"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([[1, 4, 3],\n",
+              "       [9, 2, 7]])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def my_adder(a, b, c):\n",
+        "  \"\"\"\n",
+        "  function to sum the 3 numbers\n",
+        "  Input: 3 numbers a, b, c\n",
+        "  output: the sum of a, b, and c\n",
+        "  author:\n",
+        "  date:\n",
+        "  \"\"\"\n",
+        "\n",
+        "  # this is the summation\n",
+        "  out = a + b + c\n",
+        "\n",
+        "  return out"
+      ],
+      "metadata": {
+        "id": "yc8WWIp9AjxP"
+      },
+      "execution_count": 14,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "my_adder(1, 2, 3)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "yEkXldGdBeuT",
+        "outputId": "c6a08359-32b7-4203-b8c2-4c2fc005c9a2"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "6"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def my_thermo_stat(temp, desired_temp):\n",
+        "  if temp < desired_temp - 5:\n",
+        "    status = 'heat'\n",
+        "  elif temp > desired_temp + 5:\n",
+        "    status = 'AC'\n",
+        "  else:\n",
+        "    status = 'off'\n",
+        "  return status"
+      ],
+      "metadata": {
+        "id": "PhcSXEj3DIeB"
+      },
+      "execution_count": 19,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "status = my_thermo_stat(65,75)\n",
+        "print(status)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8LO--xiTDri-",
+        "outputId": "57de333a-8527-4710-938d-b2286df37412"
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "heat\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "status = my_thermo_stat(75,65)\n",
+        "print(status)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "9hAnYeuCD3xs",
+        "outputId": "5d3ba6c2-2d59-4ef2-88c3-f47ef0baaee2"
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "AC\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "status = my_thermo_stat(65,63)\n",
+        "print(status)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "y5yBWtWrD_YN",
+        "outputId": "33826a76-b78e-42c8-ea66-355cf0913906"
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "off\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = 3\n",
+        "if x > 1 and x < 2:\n",
+        "  y = 2\n",
+        "elif x > 2 and x < 4:\n",
+        "  y=4\n",
+        "else:\n",
+        "  y = 0\n",
+        "print(y)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1-iysgbTFP25",
+        "outputId": "588a6667-f6c9-4761-cd04-308c4c08d204"
+      },
+      "execution_count": 24,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "4\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = 3\n",
+        "if 1 < x < 2:\n",
+        "  y = 2\n",
+        "elif 2 < x < 4:\n",
+        "  y = 4\n",
+        "else:\n",
+        "  y = 0\n",
+        "print(y)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "WtrepuQ5F3wj",
+        "outputId": "8cbf33d7-0931-4eea-83a0-483313aec78a"
+      },
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "4\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
